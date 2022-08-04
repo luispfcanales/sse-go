@@ -1,0 +1,24 @@
+{{ define "layout/navbarcard" }}
+<div class="tabs is-centered is-boxed">
+  <ul>
+    <li {{ if eq .GetStateRender "information"}} class="is-active"{{end}}>
+      <a href="/paquetes/{{.ID}}/information">
+        <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+        <span>Information</span>
+      </a>
+    </li>
+    <li {{ if eq .GetStateRender "pictures"}} class="is-active"{{end}}>
+      <a href="/paquetes/{{.ID}}/pictures">
+        <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li {{ if eq .GetStateRender "videos"}} class="is-active"{{end}}>
+      <a href="/paquetes/{{.ID}}/videos">
+        <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+  </ul>
+</div>
+{{ end }}
