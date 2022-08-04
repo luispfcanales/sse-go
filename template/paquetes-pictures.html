@@ -1,0 +1,17 @@
+{{ define "paquetes-pictures" }}
+  {{ template "layout/header" }}
+  </head>
+  <body>
+  {{ template "layout/navbar" }}
+  <section class="container is-half mt-5">
+    {{ template "layout/navbarcard" . }}
+    <div class="columns p-3 mt-5 mb-4 is-flex is-flex-wrap-wrap">
+      {{ $pictures := .Pictures}}
+      {{ range $value:= $pictures }}
+          {{ template "layout/cardmodalpicture" $value }}
+      {{ end }}
+    </div>
+  </section>
+  <script src="/static/modalEfects.js"></script>
+  {{template "layout/footer" }}
+{{ end }}

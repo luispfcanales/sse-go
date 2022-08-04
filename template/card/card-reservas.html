@@ -1,0 +1,47 @@
+{{ define "layout/reserva" }}
+<div class="column is-12-mobile is-4-tablet is-3-desktop">
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      {{ $rutaImage := "https://bulma.io/images/placeholders/1280x960.png" }}
+      <img src={{if .Photo}} {{.Photo}} {{else}} {{$rutaImage}} {{end}} alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          {{ $rutaPhoto := "https://bulma.io/images/placeholders/96x96.png" }}
+          <img class="is-rounded" src={{if .Photo}} {{.Photo}} {{else}} {{$rutaPhoto}} {{end}} alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{.CompanyName}}</p>
+        <p class="subtitle is-6">@{{.CompanyName}}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a class="card-footer-item" href={{if .ID }} {{urlToCard .ID }} {{else}}"/paquetes/Idcard/information"{{end}}>
+      <span class="icon has-text-info">
+        <i class="fas fa-eye"></i>
+      </span>
+    </a>
+    <a class="card-footer-item" href="#">
+      <span class="icon has-text-danger">
+        <!-- >i class="fas fa-heart"></i -->
+        <i class="far fa-heart"></i>
+      </span>
+    </a>
+  </footer>
+</div>
+</div>
+{{ end }}

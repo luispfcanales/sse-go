@@ -1,0 +1,18 @@
+{{ define "reserva" }}
+  {{ template "layout/header" }}
+  </head>
+  <body>
+  {{ template "layout/navbar" }}
+  <section class="container is-half">
+    <div class="columns p-3 mt-5 mb-4 is-flex is-flex-wrap-wrap">
+      {{range $value := . }}
+        {{ template "layout/reserva" $value }}
+      {{else}}
+        {{ template "layout/reserva" }}
+        {{ template "layout/reserva" }}
+        {{ template "layout/reserva" }}
+      {{end}}
+    </div>
+  </section>
+  {{template "layout/footer" }}
+{{ end }}

@@ -1,0 +1,29 @@
+{{ define "layout/cardmodalpicture" }}
+<div class="column is-6-mobile is-3-tablet is-2-desktop " >
+  <div class="card" style="">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src={{ .URL }} alt="Placeholder image">
+      </figure>
+    </div>
+
+    <div id={{.ID}}  class="modal ">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <p class="image is-4by3">
+          <img src={{ .URL }} alt="">
+        </p>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <footer class="card-footer">
+      <button class="js-modal-trigger card-footer-item has-background-light no-style-button" data-target={{.ID}}>
+        <span class="icon is-large has-text-info">
+          <i class="fas fa-eye "></i>
+        </span>
+      </button>
+    </footer>
+  </div>
+</div>
+{{ end }}
