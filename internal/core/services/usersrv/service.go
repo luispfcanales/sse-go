@@ -3,6 +3,7 @@ package usersrv
 import (
 	"errors"
 	"log"
+	"net/http"
 
 	"github.com/luispfcanales/sse-go/internal/core/domain"
 	"github.com/luispfcanales/sse-go/internal/core/ports"
@@ -22,6 +23,18 @@ func New(repo ports.UserRepository) *service {
 }
 
 //revive:enable:unexported-return
+//ExistSession Valid Session exits
+func (s *service) ExistSession(r *http.Request) (bool,string) {
+	c, err := r.Cookie("session_token")
+	if err != nil {
+		if err == http.ErrNoCookie {
+			return false,""
+		}
+		log.Println("Error to get cookie")
+		return false,""
+	}
+	return true,c.Value
+}
 
 //Save return error
 func (s *service) Save(user *domain.User) error {
@@ -31,8 +44,10 @@ func (s *service) Save(user *domain.User) error {
 	}
 	return nil
 }
-func (s *service) UserIsValid(user *domain.User) bool {
-	validUser := s.storage.GetByEmail(user.Email)
+
+//UserIsValid verify user
+func (s *service) GmailIsValid(email string ) bool {
+	validUser := s.storage.GetByEmail(email)
 	if validUser.ID == "" {
 		return false
 	}
@@ -40,7 +55,10 @@ func (s *service) UserIsValid(user *domain.User) bool {
 }
 
 //GetUser return user exits of database
-func (s *service) GetUser(idToken string) *domain.User {
-	log.Println(idToken, ": ", "getting user...")
+func (s *service) GetUserWithCredentials(email ,password string) *domain.User {
+	user := s.storage.GetByEmail(email)
+	if user.Password == password {
+		return &user
+	}
 	return &domain.User{}
 }

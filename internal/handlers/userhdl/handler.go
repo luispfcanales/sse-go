@@ -42,7 +42,7 @@ func (hdl *userHandler) callback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	//parte de registro aqui
-	isValid := hdl.serviceUser.UserIsValid(user)
+	isValid := hdl.serviceUser.GmailIsValid(user.Email)
 	if !isValid {
 		http.Redirect(w, r, "/login", http.StatusPermanentRedirect)
 		return

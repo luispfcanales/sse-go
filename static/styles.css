@@ -8,3 +8,35 @@
 .no-style-button:hover{
   cursor:pointer;
 }
+
+#error {
+  background-color:#181a36;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:calc(100vh - 3.25rem );
+}
+#error img {
+  min-width: 250px;
+  width: 350px;
+}
+#error h1,h3 {
+  color:white;
+}
+
+#btn-helper{
+  margin-top:2.3rem;
+  padding: 2px 15px;
+  border: 2px solid #38e0ae;
+  color:#38e0ae;
+  border-radius:10px;
+}
+#btn-helper:hover{
+  background-color:#38e0ae;
+  color:#f5f5f5;
+  box-shadow:0 0 5px #4ff7c5,
+    0 0 15px #4ff7c5,
+    0 0 20px #4ff7c5;
+  transition:0.6s;
+}

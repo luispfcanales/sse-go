@@ -28,15 +28,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
-          <p class="control">
-            <a class="button is-primary" href="/login">
-              <span class="icon">
-                <i class="fas fa-door-open"></i>
-              </span>
-              <span>Login</span>
-            </a>
-          </p>
-
+          {{ if .ActiveSession }}
           <div class="dropdown is-hoverable mr-6">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
@@ -74,6 +66,16 @@
               </div>
             </div>
           </div>
+          {{ else }}
+          <p class="control">
+            <a class="button is-primary" href="/login">
+              <span class="icon">
+                <i class="fas fa-door-open"></i>
+              </span>
+              <span>Login</span>
+            </a>
+          </p>
+          {{end}}
 
         </div>
       </div>

@@ -28,7 +28,7 @@ func rendertpl(w http.ResponseWriter, name string, data interface{}) {
 	}
 }
 
-//RenderPage render templateLogin
+//RenderPage render pages and load templates helpers 
 func RenderPage(w http.ResponseWriter, name string, data interface{}) {
 	loadTemplates()
 	switch name {
