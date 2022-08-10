@@ -15,7 +15,13 @@ type repository struct {
 //New return repository in memory
 func New() *repository {
 	data := make(map[string]*domain.User)
-	data["luispfcanales@gmail.com"] = &domain.User{ID: "12312312"}
+	data["luispfcanales@gmail.com"] = &domain.User{
+		ID: "12312312",
+		Email: "luispfcanales@gmail.com",
+		Password: "luis1234",
+		Name: "Luis Angel",
+		FamilyName: "Pfuno canales",
+	}
 	return &repository{
 		mem:  data,
 		lock: &sync.RWMutex{},
@@ -24,8 +30,8 @@ func New() *repository {
 
 //revive:enable:unexported-return
 
-//Save save to user in repository
-func (r *repository) Save(user *domain.User) bool {
+//Create save to user in repository
+func (r *repository) Create(user *domain.User) bool {
 	r.lock.Lock()
 	defer r.lock.Unlock()
 	_, ok := r.mem[user.Email]

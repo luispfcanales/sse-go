@@ -1,0 +1,13 @@
+{{ define "notfound" }}
+  {{ template "layout/header" "Not Found | 404"}}
+  </head>
+  <body>
+  {{ template "layout/navbar" }}
+  <div id="error">
+    <img src="/static/img404.webp">
+      <h1 class="is-size-1">Mmmm!</h1>
+    <h3 class="is-size-4">No encontramos lo que buscas.</h3>
+    <a id="btn-helper" class="is-size-4" href="/paquetes">Sacame de aqui!</a>
+  </div>
+  {{ template "layout/footer" }}
+{{ end }}

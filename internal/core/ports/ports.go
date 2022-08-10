@@ -9,8 +9,9 @@ import (
 //UserService is port to user
 type UserService interface {
 	Save(*domain.User) error
-	UserIsValid(*domain.User) bool
-	GetUser(string) *domain.User
+	GmailIsValid(email string) bool
+	GetUserWithCredentials(email string, password string) *domain.User
+	ExistSession(*http.Request) (bool, string)
 }
 
 //UserRepository is storage to user
